@@ -1,6 +1,7 @@
 import { MongoClient } from "mongodb";
 
-const url = 'mongodb+srv://ghtmd79:qwer1234@cluster0.othinis.mongodb.net/?retryWrites=true&w=majority';
+const baseUrl = process.env.REACT_APP_DB_URL;
+const url = `${baseUrl}?retryWrites=true&w=majority`;
 const options = { useNewUrlParser: true };
 let connectDB;
 

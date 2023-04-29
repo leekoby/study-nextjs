@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect } from "react";
 
 export default function ListItem({ result }) {
-
+  console.log(result);
   return (
     <div>
       {
@@ -14,10 +14,13 @@ export default function ListItem({ result }) {
             </Link>
             <Link href={'/edit/' + result[i]._id}>edit</Link>
             {/* <DetailLink /> */}
+            <span onClick={() => {
+              fetch('/api/post/delete', { method: 'DELETE', body: result[i]._id });
+            }}>🗑️</span>
             <p>1월 1일</p>
           </div>
         )
       }
-    </div>
+    </div >
   );
 }
